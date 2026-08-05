@@ -1,0 +1,21 @@
+{
+  "name": "playwright-agent-framework",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "npx playwright test",
+    "lint": "eslint src examples",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.46.0",
+    "typescript": "^5.5.0",
+    "eslint": "^9.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0"
+  },
+  "dependencies": {
+    "mysql2": "^3.9.0"
+  }
+}

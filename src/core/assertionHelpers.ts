@@ -1,11 +1,11 @@
 import { expect } from './baseTest';
-import type { Locator } from '@playwright/test';
+import type { Locator, Page } from '@playwright/test';
 
 export async function expectTextEquals(locator: Locator, expected: string): Promise<void> {
   await expect(locator).toBeVisible();
   await expect(locator).toHaveText(expected);
 }
 
-export async function expectUrlMatches(page: { url(): string }, pattern: RegExp): Promise<void> {
-  expect(page.url()).toMatch(pattern);
+export async function expectUrlMatches(page: Page, pattern: RegExp): Promise<void> {
+  await expect(page).toHaveURL(pattern);
 }

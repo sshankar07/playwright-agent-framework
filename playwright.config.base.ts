@@ -6,7 +6,7 @@ export default defineConfig({
   retries: 1,
   reporter: [['html', { outputFolder: 'reports' }]],
   use: {
-    baseURL: process.env.BASE_URL || 'https://example.test',
+    baseURL: process.env.BASE_URL,
     trace: 'on-first-retry'
   }
 });

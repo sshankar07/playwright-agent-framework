@@ -24,7 +24,7 @@ test.describe('OrangeHRM Timesheet Quick Launch Validation', () => {
 
     // Step 3: Enter employee name, select first available suggestion, and click View
     await page.getByRole('textbox', { name: 'Type for hints...' }).fill('Test');
-    await page.getByRole('option', { name: 'Suganya Devi Test' }).click();
+    await page.getByRole('option', { name: 'Test' }).first().click();
     await page.locator('form').getByRole('button', { name: 'View' }).click();
 
     // Assert the 'No Timesheets Found' empty-state message is displayed

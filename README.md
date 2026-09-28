@@ -59,7 +59,7 @@ Configuration is read from environment variables at run time.
 | Variable | Default | Purpose |
 | --- | --- | --- |
 | `ENV` | `dev` | Selects `config/env/dev.ts`, `qa.ts`, or `prod.ts` |
-| `BASE_URL` | `https://example.test` | Base URL used by `playwright.config.base.ts` |
+| `BASE_URL` | `https://example.test` | Base URL loaded from `.env` by the Playwright config |
 | `DB_HOST` | `localhost` | MySQL host |
 | `DB_PORT` | `3306` | MySQL port |
 | `DB_USER` | `test` | MySQL user |
@@ -135,12 +135,8 @@ Adjust the import depth to match where your spec lives.
 
 ## Before running the suite
 
-Two things are not wired up yet:
-
-1. **Browsers are not installed.** Run `npx playwright install` first.
-2. **`playwright.config.base.ts` is a base config only.** No `playwright.config.ts` extends it yet,
-   so `npm test` will not pick up its `testDir`, retry, reporter, and trace settings. Add a root
-   `playwright.config.ts` that imports and extends it before relying on the suite.
+Install the browsers with `npx playwright install`. The default `playwright.config.ts`
+re-exports the shared configuration and loads environment variables from `.env`.
 
 The example specs under `examples/tests/sample/` are templates rather than real coverage —
 `sample-api.spec.ts` skips itself by design.
